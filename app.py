@@ -46,7 +46,7 @@ class Venue(db.Model):
   facebook_link = db.Column(db.String(120))
   genres = db.Column(db.String(120))
   website_link = db.Column(db.String(120))
-  seeking_talent = db.Column(db.Boolean, default=False)
+  seeking_talent = db.Column(db.String(), nullable=False)
   seeking_description = db.Column(db.String(120))
 
   # TODO: implement any missing fields, as a database migration using Flask-Migrate
@@ -64,7 +64,7 @@ class Artist(db.Model):
   image_link = db.Column(db.String(500))
   facebook_link = db.Column(db.String(120))
   website_link = db.Column(db.String(120))
-  seeking_venue = db.Column(db.Boolean, default=False)
+  seeking_venue = db.Column(db.String(), nullable=False, default=False)
   seeking_description = db.Column(db.String(120))
 
   # TODO: implement any missing fields, as a database migration using Flask-Migrate
@@ -242,6 +242,42 @@ def create_venue_form():
 
 @app.route('/venues/create', methods=['POST'])
 def create_venue_submission():
+  if request.method == "POST":
+    name = request.form['name']
+    city = request.form['city']
+    state = request.form['state']
+    address = request.form['address']
+    phone = request.form['phone']
+    genres = request.form['genres']
+    facebook_link = request.form['facebook_link']
+    image_link = request.form['image_link']
+    website_link = request.form['website_link']
+    seeking_talent = request.form['seeking_talent']
+    seeking_description = request.form['seeking_description']
+    venue = Venue(name = name,
+                  city = city,
+                  state = state,
+                  address = address,
+                  phone = phone,
+                  genres = genres,
+                  facebook_link = facebook_link,
+                  image_link = image_link,
+                  website_link = website_link,
+                  seeking_talent = seeking_talent,
+                  seeking_description = seeking_description)
+  
+    db.session.add(venue)
+    db.session.commit()
+    flash('Venue ' + request.form['name'] + ' was successfully listed!')
+
+    db.session.close()
+  else:
+    flash('An error occurred. Venue ' + request.form['name'] + ' could not be listed!')
+    db.session.rollback()
+  
+  return render_template('pages/home.html')
+  
+
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
 
