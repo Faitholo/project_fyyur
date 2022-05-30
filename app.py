@@ -247,6 +247,7 @@ def create_venue_submission():
   
   # TODO: Complete this endpoint for taking a venue_id, and using
   # SQLAlchemy ORM to delete a record. Handle cases where the session commit could fail.
+  # Status = Done!
 @app.route('/venues/<int:venue_id>/delete', methods=['GET'])
 def delete_venue(venue_id):
   if request.method == 'GET':
@@ -264,7 +265,7 @@ def delete_venue(venue_id):
   
   # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
   # clicking that button delete it from the db then redirect the user to the homepage
-
+  # Status = Done!
 
 #  Artists
 #  ----------------------------------------------------------------
@@ -399,10 +400,25 @@ def create_artist_submission():
 
 @app.route('/shows')
 def shows():
-  shows = Show.query.join('venue')
+  shows_list = Show.query.all()
+  shows = []
+  for show in shows_list:
+    shows.append(show)
   # displays list of shows at /shows
   # TODO: replace with real venues data.
   return render_template('pages/shows.html', shows=shows)
+
+@app.route('/show/')
+def search_show():
+  response={
+      "count": 1,
+      "data": [{
+        "id": 4,
+        "name": "Guns N Petals",
+        "num_upcoming_shows": 0,
+      }]
+    }
+  return render_template('pages/show.html', results=response, search_term=request.form.get('search_term', ''))
 
 @app.route('/shows/create')
 def create_shows():
