@@ -4,6 +4,7 @@
 
 import datetime
 from distutils.command.install_lib import PYTHON_SOURCE_EXTENSION
+from email.policy import default
 from math import factorial
 from os import urandom
 import dateutil.parser
@@ -48,9 +49,9 @@ class Venue(db.Model):
   phone = db.Column(db.String(120))
   image_link = db.Column(db.String(500))
   facebook_link = db.Column(db.String(120))
-  genres = db.Column(db.String(120))
+  genres = db.Column(db.ARRAY(db.String(120)))
   website_link = db.Column(db.String(120))
-  seeking_talent = db.Column(db.String(), nullable=False)
+  seeking_talent = db.Column(db.Boolean(), default=True)
   seeking_description = db.Column(db.String(120))
   show = db.relationship('Show', backref='venue', lazy=True)
   
@@ -80,11 +81,11 @@ class Artist(db.Model):
   city = db.Column(db.String(120))
   state = db.Column(db.String(120))
   phone = db.Column(db.String(120))
-  genres = db.Column(db.String(120))
+  genres = db.Column(db.ARRAY(db.String(120)))
   image_link = db.Column(db.String(500))
   facebook_link = db.Column(db.String(120))
   website_link = db.Column(db.String(120))
-  seeking_venue = db.Column(db.String(), nullable=False, default=False)
+  seeking_venue = db.Column(db.Boolean(), default=True)
   seeking_description = db.Column(db.String(120))
   show = db.relationship('Show', backref='artist', lazy=True)
   
@@ -206,19 +207,19 @@ def create_venue_form():
 @app.route('/venues/create', methods=['POST'])
 def create_venue_submission():
   if request.method == "POST":
-    name = request.form['name']
-    city = request.form['city']
-    state = request.form['state']
-    address = request.form['address']
-    phone = request.form['phone']
-    genres = request.form['genres'].split(",")
-    facebook_link = request.form['facebook_link']
-    image_link = request.form['image_link']
-    website_link = request.form['website_link']
-    seeking_talent = request.form['seeking_talent']
-    seeking_description = request.form['seeking_description']
-    venue = Venue(name, city, state, address, phone, genres, image_link, facebook_link, website_link, seeking_talent, seeking_description)
-    
+    form = VenueForm()
+    venue = Venue(name = form.name.data,
+                  city = form.city.data,
+                  state = form.state.data,
+                  address = form.address.data,
+                  phone = form.phone.data,
+                  genres = form.genres.data,
+                  image_link = form.image_link.data,
+                  facebook_link = form.facebook_link.data,
+                  website_link = form.website_link.data,
+                  seeking_talent = form.seeking_talent.data,
+                  seeking_description = form.seeking_description.data,
+                )
     db.session.add(venue)
     db.session.commit()
     flash('Venue ' + request.form['name'] + ' was successfully listed!')
@@ -357,19 +358,19 @@ def create_artist_form():
 
 @app.route('/artists/create', methods=['POST'])
 def create_artist_submission():
-  
+      
   if request.method == "POST":
-    name = request.form['name']
-    city = request.form['city']
-    state = request.form['state']
-    phone = request.form['phone']
-    genres = request.form['genres']
-    facebook_link = request.form['facebook_link']
-    image_link = request.form['image_link']
-    website_link = request.form['website_link']
-    seeking_venue = request.form['seeking_venue']
-    seeking_description = request.form['seeking_description']
-    artist = Artist(name, city, state, phone, genres, image_link, facebook_link, website_link, seeking_venue, seeking_description)
+    form = ArtistForm()
+    artist = Artist(name = form.name.data,
+                  city = form.city.data,
+                  state = form.state.data,
+                  phone = form.phone.data,
+                  genres = form.genres.data,
+                  image_link = form.image_link.data,
+                  facebook_link = form.facebook_link.data,
+                  website_link = form.website_link.data,
+                  seeking_venue = form.seeking_venue.data,
+                  seeking_description = form.seeking_description.data)
   
     db.session.add(artist)
     db.session.commit()
@@ -393,6 +394,20 @@ def create_artist_submission():
   # e.g., flash('An error occurred. Artist ' + data.name + ' could not be listed.')
   # Status = Done
   
+@app.route('/artists/<int:artist_id>/delete', methods=['GET'])
+def delete_artist(artist_id):
+  if request.method == 'GET':
+    artist = Artist.query.get(artist_id)
+    db.session.delete(artist)
+    db.session.commit()
+    flash('Artist has been deleted successfully')
+    
+  else:
+    db.session.rollback
+    flash('Unsuccesful attenpt to delete artist')
+    db.session.close()
+  
+  return redirect(url_for('artists', artist_id=artist_id))
 
 
 #  Shows
