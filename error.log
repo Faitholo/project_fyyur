@@ -43,3 +43,611 @@
 2022-05-31 14:45:58,089 INFO: errors [in /home/faith/project_fyyur/app.py:479]
 2022-05-31 14:46:06,268 INFO: errors [in /home/faith/project_fyyur/app.py:479]
 2022-05-31 14:46:10,866 INFO: errors [in /home/faith/project_fyyur/app.py:479]
+2022-05-31 20:20:01,302 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:20:26,626 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:24:45,293 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:25:10,768 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:25:34,926 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:25:46,094 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:25:51,332 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:27:23,948 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:27:34,913 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:27:45,455 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:27:52,916 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:29:05,032 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:29:38,549 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:29:44,768 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:30:21,449 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:30:44,432 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:30:53,501 INFO: errors [in /home/faith/project_fyyur/app.py:488]
+2022-05-31 20:41:57,479 INFO: errors [in app.py:488]
+2022-05-31 20:46:30,729 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:46:45,987 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:46:48,195 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:02,281 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:06,689 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:56,909 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:57,959 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:58,533 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:58,898 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:59,213 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:48:59,442 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    return render_template('pages/shows.html', shows=shows)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:54:20,524 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    temp = {}
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:54:24,929 ERROR: Exception on /shows [GET] [in /home/faith/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 422, in shows
+    temp = {}
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/faith/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/faith/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/faith/project_fyyur/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/faith/project_fyyur/templates/pages/shows.html", line 9, in block "content"
+    <h4>{{ show.start_time|datetime('full') }}</h4>
+  File "app.py", line 130, in format_datetime
+    date = dateutil.parser.parse(value)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 1168, in parse
+    return DEFAULTPARSER.parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 556, in parse
+    res, skipped_tokens = self._parse(timestr, **kwargs)
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 675, in _parse
+    l = _timelex.split(timestr)         # Splits the timestr into tokens
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 192, in split
+    return list(cls(s))
+  File "/home/faith/.local/lib/python3.8/site-packages/dateutil/parser.py", line 60, in __init__
+    raise TypeError('Parser must be a string or character stream, not '
+TypeError: Parser must be a string or character stream, not datetime
+2022-05-31 20:56:20,269 INFO: errors [in /home/faith/project_fyyur/app.py:498]
+2022-05-31 20:56:26,303 INFO: errors [in /home/faith/project_fyyur/app.py:498]
+2022-05-31 20:56:32,574 INFO: errors [in /home/faith/project_fyyur/app.py:498]
+2022-05-31 21:18:10,633 INFO: errors [in /home/faith/project_fyyur/app.py:487]
+2022-05-31 21:18:15,838 INFO: errors [in /home/faith/project_fyyur/app.py:487]

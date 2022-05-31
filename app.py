@@ -111,7 +111,7 @@ class Show(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   venue_id = db.Column(db.Integer, db.ForeignKey('venue.id'), nullable=False)
   artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
-  start_time = db.Column(db.String())
+  start_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   
   
   def __init__(self, venue_id, artist_id, start_time):
@@ -127,11 +127,10 @@ class Show(db.Model):
 #----------------------------------------------------------------------------#
 
 def format_datetime(value, format='medium'):
-  date = dateutil.parser.parse(value)
-  if format == 'full':
-      format="EEEE MMMM, d, y 'at' h:mma"
-  elif format == 'medium':
-      format="EE MM, dd, y h:mma"
+  if isinstance(value, str):
+    date = dateutil.parser.parse(value)
+  else:
+    date = value
   return babel.dates.format_datetime(date, format, locale='en')
 
 app.jinja_env.filters['datetime'] = format_datetime
@@ -189,7 +188,7 @@ def search_venues():
 
 @app.route('/venues/<int:venue_id>')
 def show_venue(venue_id):
-  data = Venue.query.get_or_404(venue_id)
+  data = Venue.query.get(venue_id)
   return render_template('pages/show_venue.html', venue=data)
 
   # shows the venue page with the given venue_id
@@ -415,10 +414,8 @@ def delete_artist(artist_id):
 
 @app.route('/shows')
 def shows():
-  shows_list = Show.query.all()
-  shows = []
-  for show in shows_list:
-    shows.append(show)
+  shows = Show.query.all()
+
   # displays list of shows at /shows
   # TODO: replace with real venues data.
   return render_template('pages/shows.html', shows=shows)
@@ -443,16 +440,13 @@ def create_shows():
 
 @app.route('/shows/create', methods=['POST'])
 def create_show_submission():
-  
+  form = ShowForm()
   if request.method == "POST":
-    artist_id = request.form['artist_id']
-    venue_id = request.form['venue_id']
-    start_time = request.form['start_time']
     
     show = Show(
-      artist_id = artist_id,
-      venue_id = venue_id,
-      start_time = start_time
+    artist_id = form.artist_id.data,
+    venue_id = form.venue_id.data,
+    start_time = form.start_time.data
     )
     
     db.session.add(show)
