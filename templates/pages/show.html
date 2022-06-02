@@ -2,15 +2,19 @@
 {% block title %}Show Search{% endblock %}
 {% block content %}
 
-    <div class="page-header">
-        <h1>Fyyur Search!</h1>
-    </div>
-    <p class="lead"> Show Search </p>
-
-    <ul class="nav nav-pills">
-        <li class="active"><a href="/shows">Shows</a></li>
-    </ul>
-
-{#    Todo implement show search frontend #}
+<h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
+<ul class="items">
+	{% for artist in results.data %}
+	<li>
+		<a href="/artists/{{ artist.id }}">
+			<i class="fas fa-users"></i>
+			<div class="item">
+				<h5>{{ artist.name }}</h5>
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{#    Todo implement show search frontend = Done #}
 
 {% endblock %}
