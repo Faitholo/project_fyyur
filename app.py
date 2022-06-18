@@ -22,6 +22,8 @@ from flask_migrate import Migrate
 import sys
 from sqlalchemy import desc
 from models import db, Venue, Artist, Show
+from dotenv import load_dotenv
+load_dotenv('/home/project_fyyur/.env')
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
