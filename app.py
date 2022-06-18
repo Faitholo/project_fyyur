@@ -14,6 +14,7 @@ from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
 import logging
+import os
 from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
@@ -25,10 +26,13 @@ from models import db, Venue, Artist, Show
 # App Config.
 #----------------------------------------------------------------------------#
 
+db_password = os.environ.get('PASSWORD')
+secret_key = os.environ.get('SECRET_KEY')
+
 app = Flask(__name__)
-app.secret_key = "my secret key"
+app.secret_key = secret_key
 moment = Moment(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/Fyyur'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:{}@localhost:5432/Fyyur'.format(db_password)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
