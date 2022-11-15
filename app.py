@@ -10,6 +10,7 @@ from os import urandom
 import dateutil.parser
 import babel
 from flask import Flask, abort, render_template, request, Response, flash, redirect, url_for, jsonify
+from jinja2.utils import markupsafe
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
@@ -34,7 +35,7 @@ secret_key = os.environ.get('SECRET_KEY')
 app = Flask(__name__)
 app.secret_key = secret_key
 moment = Moment(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:{}@localhost:5432/Fyyur'.format(db_password)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///Fyyur'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
